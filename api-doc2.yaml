@@ -1,0 +1,54 @@
+swagger: '2.0'
+info:
+  title: Example API
+  version: 1.0.0
+paths:
+  /api/v1/bad-request:
+    get:
+      produces:
+        - "application/json; charset=utf-8"
+      parameters: []
+      responses:
+        '400':
+          description: Bad request response
+          schema:
+            properties:
+              error:
+                example: Invalid request parameters
+                type: string
+            type: object
+      summary: Simulate a bad request
+  /api/v1/server-error:
+    get:
+      produces:
+        - "application/json; charset=utf-8"
+      parameters: []
+      responses:
+        '500':
+          description: Internal server error response
+          schema:
+            properties:
+              error:
+                example: Internal server error
+                type: string
+            type: object
+      summary: Simulate a server error
+  /api/v1/users:
+    get:
+      produces:
+        - "application/json; charset=utf-8"
+      parameters: []
+      responses:
+        '200':
+          description: A list of users
+          schema:
+            items:
+              properties:
+                id:
+                  type: integer
+                name:
+                  type: string
+              type: object
+            type: array
+      summary: Get users
+
